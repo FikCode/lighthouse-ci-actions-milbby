@@ -47,6 +47,12 @@ inputs:
   lhci_github_token:
     description: 'GitHub personal access token'
     required: false
+  lhci_server:
+    description: 'Lighthouse CI Server URL'
+    required: false
+  lhci_token:
+    description: 'Lighthouse CI Server Token'
+    required: false
   lhci_min_score_performance:
     description: 'Minimum performance score'
     required: false

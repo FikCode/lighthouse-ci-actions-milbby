@@ -21,6 +21,9 @@
 [[ -n "$INPUT_COLLECTION_HANDLE_2" ]] && export SHOP_COLLECTION_HANDLE_2="$INPUT_COLLECTION_HANDLE_2"
 [[ -n "$INPUT_SEARCH_STRING" ]]       && export SHOP_COLLECTION_HANDLE="$INPUT_SEARCH_HANDLE"
 [[ -n "$INPUT_THEME_ROOT" ]]          && export THEME_ROOT="$INPUT_THEME_ROOT"
+[[ -n "$INPUT_LHCI_TOKEN" ]]          && export SHOP_LHCI_TOKEN="$INPUT_LHCI_TOKEN"
+[[ -n "$INPUT_LHCI_SERVER" ]]         && export SHOP_LHCI_SERVER="$INPUT_LHCI_SERVER"
+
 
 # Authentication creds
 export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
@@ -28,6 +31,10 @@ export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
 # Authentication creds (deprecated)
 [[ -n "$INPUT_APP_ID" ]]               && export SHOP_APP_ID="$INPUT_APP_ID"
 [[ -n "$INPUT_APP_PASSWORD" ]]         && export SHOP_APP_PASSWORD="$INPUT_APP_PASSWORD"
+
+# Authentication creds
+export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
+
 
 # Optional, these are used by Lighthouse CI to add pass/fail checks on
 # the GitHub Pull Request.
@@ -37,6 +44,8 @@ export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
 # Optional, these are used
 [[ -n "$INPUT_LHCI_MIN_SCORE_PERFORMANCE" ]]   && export LHCI_MIN_SCORE_PERFORMANCE="$INPUT_LHCI_MIN_SCORE_PERFORMANCE"
 [[ -n "$INPUT_LHCI_MIN_SCORE_ACCESSIBILITY" ]] && export LHCI_MIN_SCORE_ACCESSIBILITY="$INPUT_LHCI_MIN_SCORE_ACCESSIBILITY"
+[[ -n "$INPUT_LHCI_TOKEN" ]]   && export LHCI_TOKEN="$INPUT_LHCI_TOKEN"
+[[ -n "$INPUT_LHCI_SERVER" ]]   && export LHCI_SERVER="$INPUT_LHCI_SERVER"
 
 # Add global node bin to PATH (from the Dockerfile)
 export PATH="$PATH:$npm_config_prefix/bin"
@@ -239,6 +248,10 @@ query_string="?preview_theme_id=${preview_id}&_fd=0&pb=0"
 min_score_performance="${LHCI_MIN_SCORE_PERFORMANCE:-0.6}"
 min_score_accessibility="${LHCI_MIN_SCORE_ACCESSIBILITY:-0.9}"
 
+# LHCI configuration
+lhci_server="${LHCI_SERVER}"
+lhci_token="${LHCI_TOKEN}"
+
 cat <<- EOF > lighthouserc.yml
 ci:
   collect:
@@ -260,8 +273,8 @@ ci:
         - "--disable-gpu"
   upload:
     target: lhci
-    serverBaseUrl: ${{ secrets.LHCI_SERVER }}
-    token: ${{ secrets.LHCI_TOKEN }}
+    serverBaseUrl: $lhci_server
+    token: $lhci_token
   assert:
     assertions:
       "categories:performance":
