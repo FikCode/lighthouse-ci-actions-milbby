@@ -1,0 +1,6 @@
+fatal: not a git repository (or any of the parent directories): .git
+
+make: Entering directory `/Users/murphy/Repos/fik/lighthouse-ci-actions-milbby'
+DOCKER_BUILDKIT=1 docker build -t cpclermont/lighthouse-ci-action:1.0.0 -t cpclermont/lighthouse-ci-action: - < Dockerfile.base
+make: Leaving directory `/Users/murphy/Repos/fik/lighthouse-ci-actions-milbby'
+ 
