@@ -32,9 +32,6 @@ export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
 [[ -n "$INPUT_APP_ID" ]]               && export SHOP_APP_ID="$INPUT_APP_ID"
 [[ -n "$INPUT_APP_PASSWORD" ]]         && export SHOP_APP_PASSWORD="$INPUT_APP_PASSWORD"
 
-# Authentication creds
-export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
-
 
 # Optional, these are used by Lighthouse CI to add pass/fail checks on
 # the GitHub Pull Request.
@@ -44,6 +41,7 @@ export SHOP_ACCESS_TOKEN="$INPUT_ACCESS_TOKEN"
 # Optional, these are used
 [[ -n "$INPUT_LHCI_MIN_SCORE_PERFORMANCE" ]]   && export LHCI_MIN_SCORE_PERFORMANCE="$INPUT_LHCI_MIN_SCORE_PERFORMANCE"
 [[ -n "$INPUT_LHCI_MIN_SCORE_ACCESSIBILITY" ]] && export LHCI_MIN_SCORE_ACCESSIBILITY="$INPUT_LHCI_MIN_SCORE_ACCESSIBILITY"
+# LHCI Server
 [[ -n "$INPUT_LHCI_TOKEN" ]]   && export LHCI_TOKEN="$INPUT_LHCI_TOKEN"
 [[ -n "$INPUT_LHCI_SERVER" ]]   && export LHCI_SERVER="$INPUT_LHCI_SERVER"
 
