@@ -31,7 +31,7 @@ inputs:
   collection_handle:
     description: 'Collection handle for collection page test (default: first collection).'
     required: false
-  collection_handle:
+  collection_handle_2:
     description: 'Collection handle 2 for collection page test (default: second collection).'
     required: false
   search_query:
