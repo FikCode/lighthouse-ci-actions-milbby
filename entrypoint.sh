@@ -181,7 +181,7 @@ else
 fi
 
 if [[ -n "${SHOP_PRODUCT_HANDLE_2+x}" ]]; then
-  product_handle="$SHOP_PRODUCT_HANDLE_2"
+  product_handle_2="$SHOP_PRODUCT_HANDLE_2"
 else
   log "Fetching product handle 2"
   product_response="$(api_request "$host/admin/api/2021-04/products.json?published_status=published&limit=4")"
@@ -190,7 +190,7 @@ else
 fi
 
 if [[ -n "${SHOP_PRODUCT_HANDLE_3+x}" ]]; then
-  product_handle="$SHOP_PRODUCT_HANDLE_3"
+  product_handle_3="$SHOP_PRODUCT_HANDLE_3"
 else
   log "Fetching product handle 3"
   product_response="$(api_request "$host/admin/api/2021-04/products.json?published_status=published&limit=4")"
@@ -199,7 +199,7 @@ else
 fi
 
 if [[ -n "${SHOP_PRODUCT_HANDLE_4+x}" ]]; then
-  product_handle="$SHOP_PRODUCT_HANDLE_4"
+  product_handle_4="$SHOP_PRODUCT_HANDLE_4"
 else
   log "Fetching product handle 4"
   product_response="$(api_request "$host/admin/api/2021-04/products.json?published_status=published&limit=4")"
@@ -217,7 +217,7 @@ else
 fi
 
 if [[ -n "${SHOP_COLLECTION_HANDLE_2+x}" ]]; then
-  collection_handle="$SHOP_COLLECTION_HANDLE_2"
+  collection_handle_2="$SHOP_COLLECTION_HANDLE_2"
 else
   log "Fetching collection handle 2"
   collection_response="$(api_request "$host/admin/api/2021-04/custom_collections.json?published_status=published&limit=2")"
