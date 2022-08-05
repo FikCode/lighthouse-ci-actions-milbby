@@ -247,8 +247,8 @@ min_score_performance="${LHCI_MIN_SCORE_PERFORMANCE:-0.6}"
 min_score_accessibility="${LHCI_MIN_SCORE_ACCESSIBILITY:-0.9}"
 
 # LHCI configuration
-lhci_server="${LHCI_SERVER}"
-lhci_token="${LHCI_TOKEN}"
+lhci_server="$LHCI_SERVER"
+lhci_token="$LHCI_TOKEN"
 
 cat <<- EOF > lighthouserc.yml
 ci:
