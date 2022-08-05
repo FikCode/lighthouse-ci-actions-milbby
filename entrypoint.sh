@@ -259,8 +259,8 @@ ci:
         - "--disable-dev-shm-usage"
         - "--disable-gpu"
   upload:
-    target: 'lhci'
-    serverBaseUrl: '${{ secrets.LHCI_SERVER }}'
+    target: lhci
+    serverBaseUrl: ${{ secrets.LHCI_SERVER }}
     token: ${{ secrets.LHCI_TOKEN }}
   assert:
     assertions:
